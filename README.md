@@ -3,7 +3,7 @@ For reading a large number of Modbus servers continuously and efficiently.
 
 ## Example application:
 
-![alt text](https://github.com/Eze-DP/node-red-efficient-modbus/blob/main/example.png?raw=true)
+![alt text](https://github.com/Eze-DP/node-red-efficient-modbus/blob/main/image.png?raw=true)
 
 ## Usage:
 
