@@ -15,7 +15,7 @@ Pass 4xN parameters in a string separated by spaces to the compiled program usin
 
 127.0.0.1 502 2000 4 remote.address1.com 3302 3100 4 remote.address2.com 3302 3100 10
 
-## Returns: 
+Returns: 
 
 5.100000 5.150000 /30.000000 60.000000 /6.110000 5.220000 3.140000 1.120000 8.150000
 
