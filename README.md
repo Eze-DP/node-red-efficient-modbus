@@ -21,6 +21,12 @@ Returns:
 
 Note that real values are formed by 2 modbus registers (hence why in the example above reading 10 registers returns only 5 reals).
 
+## Dependencies:
+
+Libmodbus is used for this library. It will be necessary to use a compilation command such as:
+
+gcc real.c -o real `pkg-config --cflags --libs libmodbus`
+
 ## Why?
 
 This program is currently in use to concurrently read Modbus registers from almost 100 machines (all being polled in various remote locations). It can easily read 10,000 registers every 5 seconds without causing a high CPU load. 
