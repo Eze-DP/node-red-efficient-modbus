@@ -1,0 +1,111 @@
+[
+    {
+        "id": "c4c3036aef9199c1",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "0d2b03e37be8d8d6",
+        "type": "exec",
+        "z": "c4c3036aef9199c1",
+        "command": "./real",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "30",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 470,
+        "y": 140,
+        "wires": [
+            [
+                "503b2713e6f39ecf"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "503b2713e6f39ecf",
+        "type": "function",
+        "z": "c4c3036aef9199c1",
+        "name": "Slice",
+        "func": "var bigArray = msg.payload.split(\"/\");\nvar myArray = [];\nfor(let i in bigArray){\n    myArray.push((bigArray[i].slice(0, -1)).split(\" \"));\n}\n\nmyArray.pop();\n\nmsg.payload = myArray;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 140,
+        "wires": [
+            [
+                "d04e535647daeb81"
+            ]
+        ]
+    },
+    {
+        "id": "907bc9f3f50ce9c7",
+        "type": "function",
+        "z": "c4c3036aef9199c1",
+        "name": "ModbusPoll",
+        "func": "msg.payload = \"127.0.0.1 20804 2000 100 127.0.0.1 20806 2000 100\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 140,
+        "wires": [
+            [
+                "0d2b03e37be8d8d6"
+            ]
+        ]
+    },
+    {
+        "id": "73ed9a897e43b4f6",
+        "type": "inject",
+        "z": "c4c3036aef9199c1",
+        "name": "",
+        "props": [
+            {
+                "p": "int",
+                "v": "0",
+                "vt": "num"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "30",
+        "topic": "",
+        "x": 130,
+        "y": 140,
+        "wires": [
+            [
+                "907bc9f3f50ce9c7"
+            ]
+        ]
+    },
+    {
+        "id": "d04e535647daeb81",
+        "type": "debug",
+        "z": "c4c3036aef9199c1",
+        "name": "debug 19",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 800,
+        "y": 140,
+        "wires": []
+    }
+]
