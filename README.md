@@ -25,7 +25,7 @@ Note that real values are formed by 2 modbus registers (hence why in the example
 
 Libmodbus is used for this library. It will be necessary to use a compilation command such as:
 
-"gcc real.c -o real `pkg-config --cflags --libs libmodbus`"
+``gcc real.c -o real `pkg-config --cflags --libs libmodbus```
 
 ## Why?
 
