@@ -9,15 +9,21 @@ For reading a large number of Modbus servers continuously and efficiently.
 
 Pass 4xN parameters in a string separated by spaces to the compiled program using the append function of the exec node (where N is the number of machines you wish to poll). The function will return each register separated by a space, and each machine separated by a '/' delimiter: Input string structure: 
 
+```
 [IP address/Hostname] [Modbus Port of Server] [Starting Read Address] [Quantity of Addresses to Read] ... x N
+```
 
 ## Example:
 
+```
 127.0.0.1 502 2000 4 remote.address1.com 3302 3100 4 remote.address2.com 3302 3100 10
+```
 
 Returns: 
 
+```
 5.100000 5.150000 /30.000000 60.000000 /6.110000 5.220000 3.140000 1.120000 8.150000
+```
 
 Note that real values are formed by 2 modbus registers (hence why in the example above reading 10 registers returns only 5 reals).
 
@@ -25,7 +31,9 @@ Note that real values are formed by 2 modbus registers (hence why in the example
 
 Libmodbus is used for this library. It will be necessary to use a compilation command such as:
 
+```
 gcc real.c -o real \`pkg-config --cflags --libs libmodbus\`
+```
 
 ## Why?
 
